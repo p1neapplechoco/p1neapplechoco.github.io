@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Name - Interactive Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-left"></div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/projects.html">Projects</a></li>
+                <li><button id="theme-toggle">Toggle Theme</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Hey, I’m An (Thien) Nguyen!</h1>
+        <p>Enter a message below to see a response.</p>
+        <div id="response-window" class="response-window hidden">
+            <p id="response-text"></p>
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type something...">
+            <button onclick="handleInput()">Submit</button>
+        </div>
+    </main>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
