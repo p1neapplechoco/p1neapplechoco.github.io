@@ -3,36 +3,53 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Your Name - Interactive Portfolio</title>
+    <title>An (Thien) Nguyen</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav>
+    <!-- Navigation bar -->
+    <nav id="desktop-nav">
         <div class="nav-left"></div>
         <div class="nav-right">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="pages/about.html">About</a></li>
-                <li><a href="pages/projects.html">Projects</a></li>
-                <li><button id="theme-toggle">Toggle Theme</button></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button id="theme-toggle">
+                        <img id="theme-icon" src="assets/images/buttons/light-mode.png" alt="Theme Toggle" width="30px"
+                            height="30">
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
-        <h1>Hey, I’m An (Thien) Nguyen!</h1>
-        <p>Enter a message below to see a response.</p>
-        <div id="response-window" class="response-window hidden">
-            <p id="response-text"></p>
-        </div>
+        <h1>Hey, I'm An (Thien) Nguyen.</h1>
+        <p>What can I help you with?</p>
+
         <div class="input-container">
-            <input type="text" id="user-input" placeholder="Type something...">
-            <button onclick="handleInput()">Submit</button>
+            <input type="text" id="user-input" placeholder="Ask anything...">
         </div>
     </main>
+
+    <!-- File Explorer-like Window -->
+    <div id="explorer-window" class="explorer-window hidden">
+        <div class="explorer-header">
+            <div class="explorer-buttons">
+                <button id="minimize-btn" class="explorer-btn minimize"></button>
+                <button id="copy-btn" class="explorer-btn copy"></button>
+                <button id="download-btn" class="explorer-btn download"></button>
+                <button id="exit-btn" class="explorer-btn exit"></button>
+            </div>
+        </div>
+        <div class="explorer-content">
+            <p id="explorer-text"></p>
+        </div>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>
