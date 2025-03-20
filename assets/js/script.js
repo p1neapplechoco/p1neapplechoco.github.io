@@ -47,14 +47,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (downloadBtn) {
         downloadBtn.addEventListener("click", () => {
-            const text = document.getElementById("explorer-text").innerText;
-            const blob = new Blob([text], { type: "text/plain" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "response.txt";
-            a.click();
-            URL.revokeObjectURL(url);
+            // Check if the explorer window is displaying the CV
+            const explorerContent = document.getElementById("explorer-text");
+            const pdfEmbed = explorerContent.querySelector("embed");
+
+            if (pdfEmbed && pdfEmbed.src.includes("NguyenThienAn_CV.pdf")) {
+                // Create a temporary link to download the CV
+                const a = document.createElement("a");
+                a.href = pdfEmbed.src;
+                a.download = "NguyenThienAn_CV.pdf"; // Name of the downloaded file
+                a.click();
+            } else {
+                // Default behavior: Download text content
+                const text = explorerContent.innerText;
+                const blob = new Blob([text], { type: "text/plain" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "response.txt";
+                a.click();
+                URL.revokeObjectURL(url);
+            }
         });
     }
 
@@ -118,17 +131,54 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function handleInput() {
-    const userInput = document.getElementById("user-input").value;
+    const userInput = document.getElementById("user-input").value.toLowerCase(); // Convert input to lowercase
     const explorerWindow = document.getElementById("explorer-window");
-    const explorerText = document.getElementById("explorer-text");
+    const explorerContent = document.getElementById("explorer-text");
+    const explorerTitle = document.querySelector(".explorer-title"); // Get the title element
 
     if (userInput === "") return;
 
+    // Clear the input field
+    document.getElementById("user-input").value = "";
+
+    // Show the explorer window
     explorerWindow.classList.remove("hidden");
     explorerWindow.classList.add("show");
 
-    const text = "Hello"; // Replace with dynamic content in the future
-    explorerText.textContent = text;
+    // Clear previous content
+    explorerContent.innerHTML = "";
 
-    document.getElementById("user-input").value = "";
+    // Simple NLP-like keyword matching
+    if (userInput.includes("cv") || userInput.includes("resume")) {
+        // Update the title
+        explorerTitle.textContent = "My CV";
+
+        // Display a PDF in the explorer window
+        const pdfEmbed = document.createElement("embed");
+        pdfEmbed.src = "assets/NguyenThienAn_CV.pdf"; // Path to your PDF file
+        pdfEmbed.type = "application/pdf";
+        pdfEmbed.width = "100%";
+        pdfEmbed.height = "500px"; // Adjust height as needed
+        explorerContent.appendChild(pdfEmbed);
+    } else if (userInput.includes("projects") || userInput.includes("work")) {
+        // Update the title
+        explorerTitle.textContent = "My Projects";
+
+        explorerContent.textContent = "Here are some of my projects:\n\n1. Project A\n2. Project B\n3. Project C";
+    } else if (userInput.includes("contact") || userInput.includes("email")) {
+        // Update the title
+        explorerTitle.textContent = "You can contact me at these details:\n\nEmail: ngthienaans@gmail.com\nPhone: +84 911 105 675";
+
+        explorerContent.textContent = "You can contact me at:\n\nEmail: your.email@example.com\nPhone: +123 456 7890";
+    } else if (userInput.includes("about") || userInput.includes("who are you")) {
+        // Update the title
+        explorerTitle.textContent = "About Me";
+
+        explorerContent.textContent = "I'm An (Thien) Nguyen, a passionate developer with experience in AI (currently in NLP), development, and more!";
+    } else {
+        // Update the title
+        explorerTitle.textContent = "Answer from An";
+
+        explorerContent.textContent = "I'm sorry, I didn't understand that. Can you please rephrase? (Try asking about my CV, projects, or contact info)";
+    }
 }

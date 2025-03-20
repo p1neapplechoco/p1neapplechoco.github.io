@@ -48,9 +48,46 @@ nav {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Navigation bar */
+/* Navigation bar */
 .nav-left {
     flex-grow: 1;
+    display: flex;
+    align-items: center;
     height: 60px;
+    padding-left: 20px;
+    /* Add some padding */
+}
+
+.name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--nav-text);
+    margin-right: 20px;
+    /* Space between name and buttons */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+.name:hover {
+    text-decoration: none;
+    /* Ensure no underline on hover */
+}
+
+.social-buttons {
+    display: flex;
+    gap: 10px;
+    /* Space between buttons */
+}
+
+.social-buttons a {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-buttons a:hover {
+    transform: scale(1.1);
+    /* Slight zoom on hover */
 }
 
 .nav-right {
@@ -155,13 +192,30 @@ main {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    /* Center items vertically */
+    justify-content: space-between;
+    /* Space between title and buttons */
     cursor: move;
+}
+
+.explorer-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--nav-text);
+    position: absolute;
+    /* Position the title absolutely */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Adjust for exact centering */
 }
 
 .explorer-buttons {
     display: flex;
     gap: 5px;
+    margin-left: auto;
+    /* Push buttons to the right */
 }
 
 .explorer-btn {

@@ -10,10 +10,20 @@
 <body>
     <!-- Navigation bar -->
     <nav id="desktop-nav">
-        <div class="nav-left"></div>
+        <div class="nav-left">
+            <a href="#home" class="name"> An (Thien) Nguyen </a>
+            <div class="social-buttons">
+                <a href="https://github.com/p1neapplechoco" target="_blank">
+                    <img src="assets/images/icons/github.png" alt="GitHub" width="48" height="48">
+                </a>
+                <a href="https://linkedin.com/in/ngthienaans" target="_blank">
+                    <img src="assets/images/icons/linkedin.png" alt="LinkedIn" width="48" height="48">
+                </a>
+            </div>
+        </div>
         <div class="nav-right">
             <ul>
-                <li><a href="#home">Home</a></li>
+                <!-- <li><a href="#home">Home</a></li> -->
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -39,11 +49,12 @@
     <!-- File Explorer-like Window -->
     <div id="explorer-window" class="explorer-window hidden">
         <div class="explorer-header">
+            <div class="explorer-title">Explorer</div>
             <div class="explorer-buttons">
-                <button id="minimize-btn" class="explorer-btn minimize"></button>
-                <button id="copy-btn" class="explorer-btn copy"></button>
-                <button id="download-btn" class="explorer-btn download"></button>
-                <button id="exit-btn" class="explorer-btn exit"></button>
+                <button id="minimize-btn" class="explorer-btn minimize" title="Minimize"></button>
+                <button id="copy-btn" class="explorer-btn copy" title="Copy Text"></button>
+                <button id="download-btn" class="explorer-btn download" title="Download"></button>
+                <button id="exit-btn" class="explorer-btn exit" title="Close Window"></button>
             </div>
         </div>
         <div class="explorer-content">
