@@ -164,21 +164,30 @@ function handleInput() {
         // Update the title
         explorerTitle.textContent = "My Projects";
 
-        explorerContent.textContent = "Here are some of my projects:\n\n1. Project A\n2. Project B\n3. Project C";
+        // Display GitHub project links
+        const projectsHTML = `
+            <p>Here are some of my projects:</p>
+            <ul>
+                <li><a href="https://github.com/p1neapplechoco/RemoteControlViaEmail" target="_blank">Remote Control via Email</a></li>
+                <li><a href="https://github.com/sabertoaster/Maze_Solver" target="_blank">Tom and Jerry</a></li>
+                <li><a href="https://github.com/p1neapplechoco/caro" target="_blank">Gomoku</a></li>
+            </ul>
+        `;
+        explorerContent.innerHTML = projectsHTML;
     } else if (userInput.includes("contact") || userInput.includes("email")) {
         // Update the title
-        explorerTitle.textContent = "You can contact me at these details:\n\nEmail: ngthienaans@gmail.com\nPhone: +84 911 105 675";
+        explorerTitle.textContent = "Contact Info";
 
-        explorerContent.textContent = "You can contact me at:\n\nEmail: your.email@example.com\nPhone: +123 456 7890";
+        explorerContent.textContent = "You can contact me at:\n\nEmail: ngthienaans@gmail.com\nPhone: +84 911 105 675";
     } else if (userInput.includes("about") || userInput.includes("who are you")) {
         // Update the title
         explorerTitle.textContent = "About Me";
 
-        explorerContent.textContent = "I'm An (Thien) Nguyen, a passionate developer with experience in AI (currently in NLP), development, and more!";
+        explorerContent.textContent = "I'm An (Thien) Nguyen, a passionate developer with experience in AI (currently in NLP), web development, and game development.";
     } else {
         // Update the title
         explorerTitle.textContent = "Answer from An";
 
-        explorerContent.textContent = "I'm sorry, I didn't understand that. Can you please rephrase? (Try asking about my CV, projects, or contact info)";
+        explorerContent.textContent = "I'm sorry, I didn't understand that. Can you please rephrase?";
     }
 }

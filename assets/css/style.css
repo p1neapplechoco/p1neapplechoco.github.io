@@ -246,3 +246,109 @@ main {
     padding: 20px;
     color: var(--text-color);
 }
+
+/* ABOUT */
+
+/* Add this to your CSS file (e.g., style.css) */
+:root {
+    --section-bg: #ffffff;
+    /* Light theme background */
+    --section-text: #333333;
+    /* Light theme text */
+    --section-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Light theme shadow */
+}
+
+[data-theme="dark"] {
+    --section-bg: #1a1a1a;
+    /* Dark theme background */
+    --section-text: #e0e0e0;
+    /* Dark theme text */
+    --section-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    /* Dark theme shadow */
+}
+
+.about-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.profile-oval {
+    width: 300px;
+    height: 400px;
+    border-radius: 50%/40%;
+    overflow: hidden;
+    margin-right: 50px;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Scroll Indicator Styles */
+:root {
+    --scroll-indicator-bg: #ccc;
+    /* Light theme bullet color */
+    --scroll-indicator-active-bg: #007bff;
+    /* Light theme active bullet color */
+}
+
+[data-theme="dark"] {
+    --scroll-indicator-bg: #555;
+    /* Dark theme bullet color */
+    --scroll-indicator-active-bg: #0056b3;
+    /* Dark theme active bullet color */
+}
+
+.scroll-indicator {
+    margin-top: 20px;
+    display: flex;
+    background: var(--bg-color);
+    border-bottom: var(--bg-color);
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.scroll-indicator a {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: var(--section-bg);
+    background-color: var(--scroll-indicator-bg);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.scroll-indicator a.active {
+    background-color: var(--scroll-indicator-active-bg);
+    transform: scale(1.2);
+}
+
+.content-wrapper {
+    flex-grow: 1;
+    position: relative;
+}
+
+.content-section {
+    margin-bottom: 80px;
+    padding: 30px;
+    background: var(--section-bg);
+    color: var(--section-text);
+    border-radius: 15px;
+    box-shadow: var(--section-shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.content-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
